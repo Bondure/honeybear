@@ -2,7 +2,8 @@
 #include "HttpModule.h"
 #include "Json.h"
 #include "JsonUtilities.h"
-
+#include "Logging/LogMacros.h"
+#include "Interfaces/IHttpResponse.h" 
 UMyGameInstance::UMyGameInstance()
 {
     PlayerMoney = 0; // Инициализация денег
@@ -39,7 +40,8 @@ void UMyGameInstance::OnUpdateResponseReceived(FHttpRequestPtr Request, FHttpRes
 {
     if (bWasSuccessful && Response.IsValid())
     {
-        UE_LOG(LogTemp, Log, TEXT("Resources updated successfully: %s"), *Response->GetContentAsString());
+        FString ResponseContent = Response->GetContentAsString();
+        UE_LOG(LogTemp, Log, TEXT("Resources updated successfully: %s"), *ResponseContent);
     }
     else
     {
@@ -68,7 +70,7 @@ void UMyGameInstance::OnGetResourcesResponseReceived(FHttpRequestPtr Request, FH
     {
         // Обработка JSON-ответа
         TSharedPtr<FJsonObject> JsonResponse;
-        TSharedRef<TJsonReader<>> Reader = TJsonReaderFactory<>::Create(Response->GetContentAsString());
+        TSharedRef<TJsonReader<>> Reader = TJsonReaderFactory<>::Create(*Response->GetContentAsString());
 
         if (FJsonSerializer::Deserialize(Reader, JsonResponse))
         {
@@ -78,10 +80,7 @@ void UMyGameInstance::OnGetResourcesResponseReceived(FHttpRequestPtr Request, FH
 
             UE_LOG(LogTemp, Log, TEXT("Money: %d, Honey Price: %f"), PlayerMoney, HoneyPrices.Last());
         }
-        else
-        {
-            UE_LOG(LogTemp, Error, TEXT("Failed to parse JSON response: %s"), *Response->GetContentAsString());
-        }
+        
     }
     else
     {
