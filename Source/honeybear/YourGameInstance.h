@@ -19,7 +19,7 @@ public:
 
     // Переменные
     UPROPERTY(BlueprintReadWrite, Category = "Default", Meta = (MultiLine = "true"))
-    FString BodyTest = "0";
+    FString BodyTest = "";
 
     UPROPERTY(BlueprintReadWrite, Category = "Default", Meta = (MultiLine = "true"))
     FString Comment;
