@@ -47,7 +47,6 @@ void UYourGameInstance::MakeHttpRequest()
 void UYourGameInstance::RegPlayer()
 {
     // Здесь вы можете установить значения переменных, если необходимо
-    UserName = "N";  // Пример, замените на реальное имя игрока
     UUID = "f9b4bd0c-9da6-45e7-9885-e475cd80ad74"; // Пример, замените на реальный UUID игрока
     Money = 100; // Пример, замените на реальную сумму
 
@@ -77,6 +76,7 @@ void UYourGameInstance::OnResponseReceived(FHttpRequestPtr Request, FHttpRespons
         // Обработка успешного ответа
         FString ResponseString = Response->GetContentAsString();
         PrintMessage("Response: " + ResponseString, FLinearColor::Green, 5.0f, true, true); //Added boolean parameters for printing
+        BodyTest = "Response: " + ResponseString, FLinearColor::Green, 5.0f, true, true;
     }
     else
     {
