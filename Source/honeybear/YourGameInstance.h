@@ -67,6 +67,25 @@ public:
     UPROPERTY(BlueprintReadWrite, Category = "Default")
     int HP4;
 
+    UPROPERTY(BlueprintReadWrite, Category = "Default")
+    int CurrentResolutionIndex=0;
+
+    UPROPERTY(BlueprintReadWrite, Category = "Default")
+    int FullScrinMode=0;
+
+    UPROPERTY(BlueprintReadWrite, Category = "Default")
+    int VsynchAnti_Al=0;
+
+    UPROPERTY(BlueprintReadWrite, Category = "Default")
+    bool Vsynch=true;
+
+    UPROPERTY(BlueprintReadWrite, Category = "Default")
+    int Shadow = 0;
+
+
+    UPROPERTY(BlueprintReadWrite, Category = "Default")
+    int Lenght = 0;
+
     // Ìועמהû
     UFUNCTION(BlueprintCallable, Category = "HTTP")
     void MakeHttpRequest();
