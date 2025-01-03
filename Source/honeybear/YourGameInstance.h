@@ -34,7 +34,13 @@ public:
     int32 A;
 
     UPROPERTY(BlueprintReadWrite, Category = "Default")
-    int Money=0;
+    int Money = 0;
+
+    UPROPERTY(BlueprintReadWrite, Category = "Default")
+    int DayNumber = 1;
+
+    UPROPERTY(BlueprintReadWrite, Category = "Default")
+    bool DayNight = true;
 
     UPROPERTY(BlueprintReadWrite, Category = "Default")
     TArray<int> HoneyPrice = { 0,333,0,0,0 };
