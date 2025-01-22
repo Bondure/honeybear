@@ -28,7 +28,7 @@ public:
     FString UserName;
 
     UPROPERTY(BlueprintReadWrite, Category = "Default", Meta = (MultiLine = "true"))
-    FString UUID="f9b4bd0c-9da6-45e7-9885-e475cd80ad74";
+    FString UUID="d0bcdbb9-1e99-4cd1-b5fb-4234a0fd2732";
 
     UPROPERTY(BlueprintReadWrite, Category = "Default")
     int32 A;
