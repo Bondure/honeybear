@@ -20,7 +20,7 @@ void UYourGameInstance::MakeHttpRequest()
 {
     // Создание и настройка HTTP запроса
     TSharedRef<IHttpRequest, ESPMode::ThreadSafe> HttpRequest = FHttpModule::Get().CreateRequest();
-    HttpRequest->SetURL("https://2025.nti-gamedev.ru/api/games/f9b4bd0c-9da6-45e7-9885-e475cd80ad74/players/");
+    HttpRequest->SetURL("https://2025.nti-gamedev.ru/api/games/d0bcdbb9-1e99-4cd1-b5fb-4234a0fd2732/players/");
     HttpRequest->SetVerb("POST");
 
     // Установка заголовка Content-Type
