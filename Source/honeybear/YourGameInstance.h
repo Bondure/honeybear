@@ -110,6 +110,9 @@ public:
 
     UFUNCTION(BlueprintCallable, Category = "HTTP")
     void CreateLog(FString Price, int NVar,FString Name);
+
+    UFUNCTION(BlueprintCallable, Category = "HTTP")
+    void DeletePlayer(FString PlayerName);
 private:
     // Обработка ответа на HTTP запрос
     void OnResponseReceived(FHttpRequestPtr Request, FHttpResponsePtr Response, bool bWasSuccessful);

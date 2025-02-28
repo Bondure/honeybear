@@ -20,7 +20,7 @@ void UYourGameInstance::MakeHttpRequest()
 {
     // Создание и настройка HTTP запроса
     TSharedRef<IHttpRequest, ESPMode::ThreadSafe> HttpRequest = FHttpModule::Get().CreateRequest();
-    HttpRequest->SetURL("https://2025.nti-gamedev.ru/api/games/f9b4bd0c-9da6-45e7-9885-e475cd80ad74/players/");
+    HttpRequest->SetURL("https://2025.nti-gamedev.ru/api/games/d0bcdbb9-1e99-4cd1-b5fb-4234a0fd2732/players/");
     HttpRequest->SetVerb("POST");
 
     // Установка заголовка Content-Type
@@ -187,4 +187,16 @@ void UYourGameInstance::CreateLog(FString Price, int NVar,FString Name) {
     FString NewComment = "change in the price of honey " + Price;
     FString RequestBody = FString::Printf(TEXT("{\"comment\": \"%s\", \"player_name\": \"%s\", \"resources_changed\": {\"%s\": \"%d\"}}"),
        *NewComment, *Name, *Price, NVar);
+}
+
+void UYourGameInstance::DeletePlayer(FString PlayerName) {
+    // Создание и настройка HTTP запроса
+    TSharedRef<IHttpRequest, ESPMode::ThreadSafe> HttpRequest = FHttpModule::Get().CreateRequest();
+
+    // Формирование URL с UUID игры и именем пользователя
+    FString URL = FString::Printf(TEXT("https://2025.nti-gamedev.ru/api/games/d0bcdbb9-1e99-4cd1-b5fb-4234a0fd2732/players/"), *PlayerName);
+    HttpRequest->SetURL(URL);
+    HttpRequest->SetVerb("DELETE");
+    // Установка заголовка Content-Type
+    HttpRequest->SetHeader("Content-Type", "application/json");
 }
